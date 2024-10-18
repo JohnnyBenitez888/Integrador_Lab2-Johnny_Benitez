@@ -1,0 +1,9 @@
+-copia transferencia y programación = { mecanismo para mover un turno de una agenda a otra}
+- dos formas de sacar turno = presencial/online
+-sacar turno con secretaria/admision personalmente = reservado/confirmado
+-turno online = reservado/no confirmado ---- esperar confirmación mediante mail/telefono
+-el medico puede ver solo su agenda
+-admision solo ve las agendas de su clinics
+-pasiente online podria seleccionar la clinica y sacar turno 
+pasiente ve solo turnos disponibles de las agendas -- horarios libre
+-atributo de la agenda = cantidad maxima de sobreturnos
