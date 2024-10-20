@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title Calendario
+    link(rel="stylesheet" href="/css/calendario.css")
+    script(src="/calendario.js")
+  body
+    div.container
+      h2 #{calendario[3][3].mes} #{calendario[3][3].anio}
+      
+      div.btn-group
+        a.btn-primario(href="/calendario/mes-anterior") Anterior
+        a.btn-primario(href="/calendario") Mes Actual
+        a.btn-primario(href="/calendario/mes-siguiente") Siguiente
+
+      table.table-bordered
+        thead
+          tr
+            th dom
+            th lun
+            th mar
+            th mié
+            th jue
+            th vie
+            th sáb
+        tbody
+          each semana in calendario
+            tr
+              each dia in semana
+                if dia.isFromCurrentMonth
+                  td(class=(dia.esHoy ? 'highlight' : '')) #{dia.dia}
+                else
+                  td.dia-fuera #{dia.dia}
+
+    

@@ -1,0 +1,52 @@
+.container {
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+  }
+  
+  h2{
+    text-align: center;
+    color: #9f3647; 
+    font-size: 48px;
+  }
+  
+  .table-bordered {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+  }
+
+  .btn-group{
+    display: flex;
+    justify-content: center;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .dia-fuera {
+    background-color: #d3d3d3;
+    color: #0e0d0d;
+  }
+  
+  .highlight {
+    background-color: #ffcccb;
+    font-weight: bold;
+  }
+  
+  .btn-primario {
+    background-color: #9f3647;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .btn-primario:hover {
+    background-color: darkcyan;
+  }
+  
