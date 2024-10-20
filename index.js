@@ -12,6 +12,8 @@
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('assets'));
+
 
  /* Motor de Plantillas Pug ---------------------------------------------------------------------------*/
  app.set('view engine', 'pug');

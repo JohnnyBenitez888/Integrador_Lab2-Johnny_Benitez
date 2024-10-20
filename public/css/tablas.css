@@ -1,0 +1,88 @@
+h1.titi {
+    color: #9f3647;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a.crearse {
+    display: inline-block;
+    background-color: #9f3647;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+a.crearse:hover {
+    background-color: #872f3e;
+}
+
+.alert.alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1.1rem;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #9f3647;
+    color: white;
+}
+
+table thead th {
+    padding: 15px;
+    text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tbody td {
+    padding: 12px 15px;
+}
+
+table tbody tr:hover {
+    background-color: #f0e6e6;
+}
+
+a.actualizar, a.eliminar {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a.actualizar {
+    background-color: #007bff;
+    color: white;
+}
+
+a.actualizar:hover {
+    background-color: #0056b3;
+}
+
+a.eliminar {
+    background-color: #dc3545;
+    color: white;
+}
+
+a.eliminar:hover {
+    background-color: #b02a37;
+}

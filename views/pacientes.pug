@@ -1,7 +1,7 @@
 extends ./layout.pug
 block content
-    h1 Pacientes
-    a(href="/pacientes/create" class="btn btn-success mb-3") Crear Paciente
+    h1.titi Pacientes
+    a.crearse(href="/pacientes/create") Crear Paciente
     if nombre_completo
         .alert.alert-success
             h4 El paciente #{nombre_completo} fue creado correctamente.
@@ -34,8 +34,5 @@ block content
                     td #{paciente.obra_social ? paciente.obra_social.nombre : 'Sin Obra Social'}
                     td= paciente.activo == 1 ? "Activo" : "Inactivo"
                     td
-                        a(href=`/pacientes/update/${paciente.id}` class="btn btn-warning btn-sm") Actualizar
-                        a(href=`/pacientes/delete/${paciente.id}` class="btn btn-danger btn-sm") Eliminar
-    br              
-    br              
-    a.btn-primario(href="/") Home
+                        a.actualizar(href=`/pacientes/update/${paciente.id}`) Actualizar
+                        a.eliminar(href=`/pacientes/delete/${paciente.id}`) Eliminar
