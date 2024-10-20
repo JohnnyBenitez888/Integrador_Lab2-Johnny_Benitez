@@ -1,0 +1,41 @@
+extends ./layout.pug
+block content
+    h1 Pacientes
+    a(href="/pacientes/create" class="btn btn-success mb-3") Crear Paciente
+    if nombre_completo
+        .alert.alert-success
+            h4 El paciente #{nombre_completo} fue creado correctamente.
+
+    table.table.table-striped
+        thead
+            tr
+                th ID
+                th Nombre Completo
+                th DNI
+                th Fecha de Nacimiento
+                th Domicilio
+                th Sexo
+                th Teléfono
+                th Email
+                th Obra Social
+                th Estado
+                th Acciones
+        tbody
+            each paciente in pacientes
+                tr
+                    td #{paciente.id_paciente}
+                    td #{paciente.nombre_completo}
+                    td #{paciente.dni}
+                    td #{paciente.fecha_nacimiento}
+                    td #{paciente.domicilio}
+                    td #{paciente.sexo}
+                    td #{paciente.telefono}
+                    td #{paciente.email}
+                    td #{paciente.obra_social ? paciente.obra_social.nombre : 'Sin Obra Social'}
+                    td= paciente.activo == 1 ? "Activo" : "Inactivo"
+                    td
+                        a(href=`/pacientes/update/${paciente.id}` class="btn btn-warning btn-sm") Actualizar
+                        a(href=`/pacientes/delete/${paciente.id}` class="btn btn-danger btn-sm") Eliminar
+    br              
+    br              
+    a.btn-primario(href="/") Home

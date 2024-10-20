@@ -48,11 +48,15 @@ app.get('/nuevo-turno', (req, res) => {
   res.render('nuevo-turno');
 });
 
-/* Rutas del login----------------------------------------------------------------------------------------*/
- /* const loginRoute = require('./routes/loginRoute');
- app.use('/login', loginRoute);  */
+/* Rutas del medico----------------------------------------------------------------------------------------*/
+ const medicoRoute = require('./routes/medicoRoute.js');
+ app.use('/medicos', medicoRoute); 
 
- app.get('/agendarPaciente', (req, res) => {
+ /* Rutas del Paciente------------------------------------------------------------------------------------*/
+ const pacienteRoute = require('./routes/pacienteRoute');
+ app.use('/paciente', pacienteRoute); 
+
+ app.get('/agendarPaciente', (req, res) => {/* AgendarPaciente */
     res.render('agenda');
   });
 

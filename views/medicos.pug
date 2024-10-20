@@ -1,0 +1,36 @@
+extends ./layout.pug
+block content
+    h1 Médicos
+    a(href="#" class="btn btn-success mb-3") Crear Médico
+
+    if nombre
+        .alert.alert-success
+            h4 El médico #{nombre} fue creado correctamente
+
+    table(class="table table-striped table-hover")
+        thead
+            tr
+                th ID
+                th Nombre
+                th Apellido
+                th DNI
+                th Email
+                th Estado
+                th Sucursal
+                th Acciones
+        tbody
+            each medico in medicos
+                tr
+                    td #{medico.id_medico}
+                    td #{medico.nombre}
+                    td #{medico.apellido}
+                    td #{medico.dni}
+                    td #{medico.email}
+                    td= medico.activo ? "Activo" : "Inactivo"
+                    td= medico.nombre_sucursal
+                    td
+                        a(href=`/medicos/buscar/${medico.id_medico}` class="btn btn-warning btn-sm me-2") Actualizar
+                        a(href=`/medicos/eliminar/${medico.id_medico}` class="btn btn-danger btn-sm") Eliminar
+    br              
+    br              
+    a.btn-primario(href="/") Home
