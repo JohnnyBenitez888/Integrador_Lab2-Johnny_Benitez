@@ -5,19 +5,13 @@
  const port = process.env.SERVER_PORT || 3000;
  const sequelize = require('./config/database');
 
- /* calendario */
- const { cargarMesAnterior, cargarMesSiguiente, cargarMesActual, meses } = require('./public/calendario.js');
- const { format} = require('date-fns');
- const { es } = require('date-fns/locale');
+ /* calendario -----------------------------------------------------------------------------------------*/
+ const { cargarMesAnterior, cargarMesSiguiente, cargarMesActual, meses } = require('./public/js/calendario.js');
 
 /* Middleware ------------------------------------------------------------------------------------------*/
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-
-/* Rutas */
- /* const loginRoute = require('./routes/loginRoute');
- app.use('/login', loginRoute);  */
 
  /* Motor de Plantillas Pug ---------------------------------------------------------------------------*/
  app.set('view engine', 'pug');
@@ -35,30 +29,32 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* Rutas del Calendario------------------------------------------------------------------------------- */
 app.get('/calendario', (req, res) => {
   const calendario = cargarMesActual();  // Generar el calendario del mes actual
-  console.log(calendario);
+  //console.log(calendario);
   res.render('calendario', { calendario});
 });
 
 app.get('/calendario/mes-anterior', (req, res) => {
   const calendario = cargarMesAnterior(); // Generar el calendario del mes anterior
-  const fechaActual = new Date();
-  const mesActual = format(fechaActual, 'MMMM', { locale: es });
-  const añoActual = format(fechaActual, 'yyyy', { locale: es });
-  res.render('calendario', { calendario, mesActual, añoActual});
+  res.render('calendario', { calendario});
 });
 
 app.get('/calendario/mes-siguiente', (req, res) => {
   const calendario = cargarMesSiguiente(); // Generar el calendario del mes siguiente
-  const fechaActual = new Date();
-  const mesActual = format(fechaActual, 'MMMM', { locale: es });
-  const añoActual = format(fechaActual, 'yyyy', { locale: es });
-  res.render('calendario', { calendario, mesActual, añoActual});
+  res.render('calendario', { calendario});
 });
 
 /* Rutas del Nuevo Turno--------------------------------------------------------------------------------- */
 app.get('/nuevo-turno', (req, res) => {
   res.render('nuevo-turno');
 });
+
+/* Rutas del login----------------------------------------------------------------------------------------*/
+ /* const loginRoute = require('./routes/loginRoute');
+ app.use('/login', loginRoute);  */
+
+ app.get('/agendarPaciente', (req, res) => {
+    res.render('agenda');
+  });
 
 /* Sincronizar la base de datos --------------------------------------------------------------------------*/
 sequelize.sync()

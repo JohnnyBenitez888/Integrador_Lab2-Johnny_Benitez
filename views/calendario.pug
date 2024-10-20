@@ -3,7 +3,6 @@ html
   head
     title Calendario
     link(rel="stylesheet" href="/css/calendario.css")
-    script(src="/calendario.js")
   body
     div.container
       h2 #{calendario[3][3].mes} #{calendario[3][3].anio}
@@ -31,5 +30,7 @@ html
                   td(class=(dia.esHoy ? 'highlight' : '')) #{dia.dia}
                 else
                   td.dia-fuera #{dia.dia}
-
+    br              
+    br              
+    a.btn-primario(href="/") Home
     

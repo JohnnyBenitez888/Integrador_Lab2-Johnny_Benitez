@@ -21,7 +21,23 @@ body {
   
   nav ul li {
     display: inline-block;
-    margin: 0 1rem;
+    margin: 1rem 2rem;
+  }
+
+  .btn-primario {
+    background-color: #36282a;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+  }
+  
+  .btn-primario:hover {
+    background-color: darkcyan;
   }
   
   footer {

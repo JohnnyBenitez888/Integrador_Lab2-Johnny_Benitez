@@ -1,20 +1,16 @@
-doctype html
-html
-  head
-    title Agenda de Consultorios
-    link(rel="stylesheet", href="/style.css")
-  body
-    header
-        h1 ¡Bienvenid@!
-    nav
-        ul
-            li: a(href="/medicos") Medicos
-            li: a(href="/medicos") Sacar Turnos
-            li: a(href="/register-login") Registrate/Iniciar Sesion
-            li: a(href="/calendario") Calendario
-    main
-        h2 Agenda de Consultorios 
-        p Saca tus turnos médicos de manera fácil y rápida.
-        p Utiliza el menú de navegación para acceder a las secciones de la aplicación.
-    footer
-      p &copy; 2024 Agenda de Consultorios
+extends ./layout.pug
+block content
+  header
+    h1 ¡Agenda de Consultorios!
+  nav
+    ul
+      li: a.btn-primario(href="/medicos") Medicos
+      li: a.btn-primario(href="/medicos") Sacar Turnos
+      li: a.btn-primario(href="/register-login") Registrate/Iniciar Sesion
+      li: a.btn-primario(href="/calendario") Calendario
+      li: a.btn-primario(href="/agendarPaciente") Agendar Paciente
+  main
+    p Saca tus turnos médicos de manera fácil y rápida.
+    p Utiliza el menú de navegación para acceder a las secciones de la aplicación.
+  footer
+    p &copy; 2024 Agenda de Consultorios
