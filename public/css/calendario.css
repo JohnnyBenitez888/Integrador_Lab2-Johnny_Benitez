@@ -1,27 +1,27 @@
-.container {
+.container2 {
     margin: 0 auto;
     width: 80%;
     text-align: center;
   }
   
-  h2{
+  h2.calendario {
     text-align: center;
     color: #9f3647; 
     font-size: 48px;
   }
   
-  .table-bordered {
+  .table-bordered2 {
     width: 100%;
     border: 1px solid #ddd;
     border-collapse: collapse;
   }
 
-  .btn-group{
+  .btn-group2{
     display: flex;
     justify-content: center;
   }
   
-  th, td {
+  th.cal, td.cal {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
@@ -38,7 +38,7 @@
   }
   
   .btn-primario {
-    background-color: #9f3647;
+    background-color: #429f36;
     color: white;
     border: none;
     padding: 10px 20px;

@@ -1,26 +1,26 @@
 extends ./layout.pug
 block content
-  div.container
-    h2 #{calendario[3][3].mes} #{calendario[3][3].anio}
+  div.container2
+    h2.calendario #{calendario[3][3].mes} #{calendario[3][3].anio}
 
-    div.btn-group
+    div.btn-group2
       a.btn-primario(href="/calendario/mes-anterior") Anterior
       a.btn-primario(href="/calendario") Mes Actual
       a.btn-primario(href="/calendario/mes-siguiente") Siguiente
 
-    table.table-bordered
-      thead
-        tr
-          th dom
-          th lun
-          th mar
-          th mié
-          th jue
-          th vie
-          th sáb
-      tbody
+    table.table-bordered2
+      thead.cal
+        tr.cal
+          th.cal dom
+          th.cal lun
+          th.cal mar
+          th.cal mié
+          th.cal jue
+          th.cal vie
+          th.cal sáb
+      tbody.cal
         each semana in calendario
-          tr
+          tr.cal
             each dia in semana
               if dia.isFromCurrentMonth
                 td(class=(dia.esHoy ? 'highlight' : '')) #{dia.dia}
