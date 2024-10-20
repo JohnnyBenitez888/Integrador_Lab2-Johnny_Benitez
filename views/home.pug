@@ -1,7 +1,9 @@
 extends ./layout.pug
 block content
   header
-    h1 ¡Agenda de Consultorios!
+    a(href="/" class="logo")
+      img.imgLogo(src="assets/logo.png", alt="Agenda de Consultorios")
+      h1 ¡Agenda de Consultorios!
   nav
     ul
       li: a.btn-primario(href="/medicos") Medicos
