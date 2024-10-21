@@ -7,3 +7,6 @@
 -pasiente online podria seleccionar la clinica y sacar turno 
 pasiente ve solo turnos disponibles de las agendas -- horarios libre
 -atributo de la agenda = cantidad maxima de sobreturnos
+
+----------------------------------------------------------------------------------
+

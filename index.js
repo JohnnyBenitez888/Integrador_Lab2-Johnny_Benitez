@@ -58,8 +58,8 @@ app.get('/nuevo-turno', (req, res) => {
  const pacienteRoute = require('./routes/pacienteRoute');
  app.use('/paciente', pacienteRoute); 
 
- app.get('/agendarPaciente', (req, res) => {/* AgendarPaciente */
-    res.render('agenda');
+ app.get('/ingresarPaciente', (req, res) => {/* AgendarPaciente */
+    res.render('ingresarPaciente');
   });
 
 /* Sincronizar la base de datos --------------------------------------------------------------------------*/
