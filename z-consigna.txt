@@ -9,4 +9,12 @@ pasiente ve solo turnos disponibles de las agendas -- horarios libre
 -atributo de la agenda = cantidad maxima de sobreturnos
 
 ----------------------------------------------------------------------------------
+turno tiene estado --- los sobreturnos son turnos en espera.. 
+agenda -- dia de la semana--- horarios tabla dia de la semana
+una agenda de ocho a doce... 
+turno id agenda..id paciente.. un turno asociado a un paciente... un paciente puede tener muchos turnos
+turno tiene orden-- horaInicio -- horaFin
 
+tres turnos por hora..
+atributo multivalorado.. 
+tabla de dias con relacion de muchos a muchos con agenda
