@@ -23,10 +23,6 @@ const Medico = sequelize.define('medicos', {
         type: DataTypes.BOOLEAN,
         allowNull: false
     },
-    nombre_sucursal: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
     email: {
         type: DataTypes.STRING,
         allowNull: false

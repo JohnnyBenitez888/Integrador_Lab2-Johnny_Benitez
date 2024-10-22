@@ -18,3 +18,9 @@ turno tiene orden-- horaInicio -- horaFin
 tres turnos por hora..
 atributo multivalorado.. 
 tabla de dias con relacion de muchos a muchos con agenda
+
+----------------------------------------------------------------------------------
+Para regularizar la materia se deberá tener en funcionamiento (al final de la cursada):
+
+Gestión de los médicos (Altas, modificaciones, inactivación, gestión de sus especialidades)
+Presentación de la pantalla de agendamiento que permita agendar un turno para un paciente en un horario disponible.

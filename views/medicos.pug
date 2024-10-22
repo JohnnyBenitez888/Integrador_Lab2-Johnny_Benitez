@@ -15,7 +15,6 @@ block content
                 th DNI
                 th Email
                 th Estado
-                th Sucursal
                 th Acciones
         tbody
             each medico in medicos
@@ -26,7 +25,6 @@ block content
                     td #{medico.dni}
                     td #{medico.email}
                     td= medico.activo ? "Activo" : "Inactivo"
-                    td= medico.nombre_sucursal
                     td
                         a.actualizar(href=`/medicos/buscar/${medico.id_medico}`) Actualizar
                         a.eliminar(href=`/medicos/eliminar/${medico.id_medico}`) Eliminar
