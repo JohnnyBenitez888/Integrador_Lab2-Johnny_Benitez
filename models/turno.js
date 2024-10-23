@@ -22,13 +22,13 @@ const Turno = sequelize.define('turnos', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: estado_turnos, // Relación con el modelo estado_turno
+      model: estado_turno, // Relación con el modelo estado_turno
       key: 'id_estado_turno',  
     },
   },
   id_agenda: {
     type: DataTypes.INTEGER,
-    allowNull: true,
+    allowNull: false,
     references: {
       model: agenda, // Relación con el modelo agenda
       key: 'id_agenda',
@@ -39,12 +39,12 @@ const Turno = sequelize.define('turnos', {
     allowNull: true,
   },
   horario_inicio: {
-    type: DataTypes.STRING,
-    allowNull: true,
+    type: DataTypes.TIME,
+    allowNull: false,
   },
   horario_final: {
-    type: DataTypes.STRING,
-    allowNull: true,
+    type: DataTypes.TIME,
+    allowNull: false,
   },
   orden: {
     type: DataTypes.INTEGER,
@@ -60,6 +60,7 @@ const Turno = sequelize.define('turnos', {
 });
 
 // Establecer la relación con los otros modelos
+
 /* Turno.hasMany(paciente, { foreignKey: 'id_paciente' , as: 'paciente' });
 
 Turno.hasMany(agenda, { foreignKey: 'id_agenda' , as: 'agenda' });

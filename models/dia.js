@@ -1,16 +1,20 @@
 const sequelize = require("../config/database");
 const { DataTypes } = require("sequelize");
+const agenda = require("./agenda");
 
 const Dia = sequelize.define(
   "dias",
   {
-    id_dia: {
+    id_agenda: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
+      references: {
+        model: agenda, // Relación con el modelo agenda
+        key: 'id_agenda',
+      },
+      allowNull: false,
     },
-    nombre: {
-      type: DataTypes.STRING,
+    dia: {
+      type: DataTypes.ENUM('Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo'),
       allowNull: false,
     }
   },
