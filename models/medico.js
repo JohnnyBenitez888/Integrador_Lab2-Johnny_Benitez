@@ -19,6 +19,18 @@ const Medico = sequelize.define('medicos', {
         type: DataTypes.INTEGER,
         allowNull: false
     },
+    fecha_nacimiento: {
+        type: DataTypes.DATE,
+        allowNull: true
+    },
+    domicilio: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    sexo: {
+        type: DataTypes.CHAR,
+        allowNull: false
+    },
     activo: {
         type: DataTypes.BOOLEAN,
         allowNull: false

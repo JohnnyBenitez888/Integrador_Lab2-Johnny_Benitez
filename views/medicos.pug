@@ -1,7 +1,7 @@
 extends ./layout.pug
 block content
     h1.titi Médicos
-    a.btn-primario(href="#") Crear Médico
+    a.btn-primario(href="/medicos/crear") Crear Médico
     if nombre
         .alert.alert-success
             h4 El médico #{nombre} fue creado correctamente
@@ -13,6 +13,9 @@ block content
                 th Nombre
                 th Apellido
                 th DNI
+                th Fecha de Nacimiento
+                th Domicilio
+                th Sexo
                 th Email
                 th Estado
                 th Acciones
@@ -23,6 +26,9 @@ block content
                     td #{medico.nombre}
                     td #{medico.apellido}
                     td #{medico.dni}
+                    td #{medico.fecha_nacimiento}
+                    td #{medico.domicilio}
+                    td #{medico.sexo}
                     td #{medico.email}
                     td= medico.activo ? "Activo" : "Inactivo"
                     td

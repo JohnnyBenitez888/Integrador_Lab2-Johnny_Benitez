@@ -8,7 +8,7 @@
 body {
   display: grid;
   grid-template-columns: 85px 1fr;
-  grid-template-rows: 13vh 77vh 10vh;
+  grid-template-rows: 13vh 80vh 7vh;
   grid-template-areas:
     "aside header"
     "aside main"
