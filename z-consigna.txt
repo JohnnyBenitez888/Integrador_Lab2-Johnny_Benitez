@@ -1,3 +1,6 @@
+mysql Command line client
+ALTER USER 'root'@'localhost' IDENTIFIED BY '5872';
+
 -copia transferencia y programación = { mecanismo para mover un turno de una agenda a otra}
 - dos formas de sacar turno = presencial/online
 -sacar turno con secretaria/admision personalmente = reservado/confirmado
