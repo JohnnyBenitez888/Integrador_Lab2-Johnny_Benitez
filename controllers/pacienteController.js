@@ -1,7 +1,7 @@
 const paciente = require("../models/paciente");
 const ObraSocial = require("../models/obra_social");
 
-exports.listarPasientes = async (req, res) => {
+exports.listarPacientes = async (req, res) => {
   try {
     const pacientes = await paciente.findAll(
       {

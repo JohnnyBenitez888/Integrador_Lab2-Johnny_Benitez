@@ -55,7 +55,7 @@ app.get('/nuevo-turno', (req, res) => {
  app.use('/medicos', medicoRoute); 
 
  /* Rutas del Paciente------------------------------------------------------------------------------------*/
- const pacienteRoute = require('./routes/pacienteRoute.js');
+ const pacienteRoute = require('./routes/pacienteTRoute.js');
  app.use('/paciente', pacienteRoute); 
 
  app.get('/ingresarPaciente', (req, res) => {/* AgendarPaciente */
