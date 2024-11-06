@@ -20,7 +20,7 @@ turno tiene orden-- horaInicio -- horaFin
 
 tres turnos por hora..
 atributo multivalorado.. 
-tabla de dias con relacion de muchos a muchos con agenda
+tabla de dias con relacion de muchos a muchos con agenda------
 
 ----------------------------------------------------------------------------------
 Para regularizar la materia se deberá tener en funcionamiento (al final de la cursada):
