@@ -21,7 +21,7 @@ app.use(express.static('assets'));
 
  /* Ruta principal ------------------------------------------------------------------------------------*/
  app.get('/', (req, res) => {
-     res.render('home');
+     res.render('includes/principal');
  });
  app.get('/register-login', (req, res) => {
     res.render('login');
@@ -45,6 +45,14 @@ app.get('/calendario/mes-siguiente', (req, res) => {
   res.render('calendario', { calendario});
 });
 
+/* Rutas del Administrador--------------------------------------------------------------------------------- */
+app.get('/admin', (req, res) => {
+  res.render('home', {titulo: 'Administrador'});
+});
+/* Rutas del Secretaria--------------------------------------------------------------------------------- */
+app.get('/secretaria', (req, res) => {
+  res.render('home', {titulo: 'Secretaria'});
+});
 /* Rutas del Nuevo Turno--------------------------------------------------------------------------------- */
 app.get('/nuevo-turno', (req, res) => {
   res.render('nuevo-turno');
@@ -52,11 +60,17 @@ app.get('/nuevo-turno', (req, res) => {
 
 /* Rutas del medico----------------------------------------------------------------------------------------*/
  const medicoRoute = require('./routes/medicoRoute.js');
- app.use('/medicos', medicoRoute); 
+ app.get('/medicos', (req, res) => {
+  res.render('home', {titulo: 'Médico'});
+});
+ app.use('/allmedicos', medicoRoute); 
 
  /* Rutas del Paciente------------------------------------------------------------------------------------*/
  const pacienteRoute = require('./routes/pacienteRoute.js');
- app.use('/paciente', pacienteRoute); 
+ app.get('/pacientes', (req, res) => {
+  res.render('home', {titulo: 'Paciente'});
+});
+ app.use('/allpaciente', pacienteRoute); 
 
  app.get('/ingresarPaciente', (req, res) => {/* AgendarPaciente */
     res.render('ingresarPaciente');

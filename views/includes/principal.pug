@@ -1,0 +1,29 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet" href="/css/principal.css")
+        title Principal
+    body
+        header.header
+            nav.sidebarlo-header
+                a(href="/")
+                    img(src="/assets/logo.png" alt="Logo" class="logo")
+                h2 Clínica ULP
+        main.main
+            .container
+                .caja
+                    a(href="/admin")
+                        img(src="/assets/admin.jpeg" alt="Administrador Logo" class="icono-boton")
+                .caja
+                    a(href="/secretaria")
+                        img(src="/assets/secretaria.jpeg" alt="Secretaria Logo" class="icono-boton")
+                .caja
+                    a(href="/medicos")
+                        img(src="/assets/med.png" alt="Médico Logo" class="icono-boton")
+                .caja
+                    a(href="/pacientes")
+                        img(src="/assets/paciente.png" alt="Paciente Logo" class="icono-boton")
+        footer.footer
+            p &copy; Johnny Benitez #{new Date().getFullYear()}  

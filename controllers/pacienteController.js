@@ -13,7 +13,7 @@ exports.listarPacientes = async (req, res) => {
           },
         ],
       });
-    res.render("pacientes.pug", { pacientes });
+    res.render("pacientes.pug", { titulo: 'Secretaria', pacientes: pacientes });
   } catch (error) {
     console.error("Error al obtener los pacientes gg:", error);
   }
