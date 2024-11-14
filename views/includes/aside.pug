@@ -4,9 +4,13 @@
 ul.sidebarlo-links
     if (titulo == "Administrador")
         li
-            a(href="/home")
-                span.material-symbols-outlined home
-                | Home
+            a(href="/allmedicos")
+                span.material-symbols-outlined medical_services
+                | Medicos
+        li
+            a(href="/allespecialidades")
+                span.material-symbols-outlined pacemaker
+                | Especialidades
         li
             a(href="/agenda")
                 span.material-symbols-outlined clinical_notes
@@ -15,11 +19,12 @@ ul.sidebarlo-links
             a(href="/calendario")
                 span.material-symbols-outlined calendar_month
                 | Calendario
-        li
-            a(href="/allmedicos")
-                span.material-symbols-outlined medical_services
-                | Medicos
+        
     else if (titulo == "Secretaria")
+        li
+            a(href="/home")
+                span.material-symbols-outlined home
+                | Home
         li
             a(href="/calendario")
                 span.material-symbols-outlined calendar_month
@@ -36,10 +41,6 @@ ul.sidebarlo-links
             a(href="/ingresarPaciente")
                 span.material-symbols-outlined schedule
                 | Ingresar Paciente
-        li
-            a(href="/register-login")
-                span.material-symbols-outlined login
-                | Registrate/Iniciar Sesion
 .exit-link
     a(href="/")
         span.material-symbols-outlined logout

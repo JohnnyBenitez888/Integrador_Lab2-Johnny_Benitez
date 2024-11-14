@@ -1,0 +1,48 @@
+extends ./layout.pug
+block content
+    form.forma-form(action="/allmedicos/editar" method="POST")
+        label(for="id_medico" hidden) ID:
+        input(type="text" name="id_medico"  value=`${medico.id_medico}` hidden)
+        label.forma-label(for="nombre") Nombre: 
+        input.forma-input(type="text" name="nombre"  value=`${medico.nombre}` required)
+
+        label.forma-label(for="apellido") Apellido: 
+        input.forma-input(type="text" name="apellido"   value=`${medico.apellido}` required)
+
+        label.forma-label(for="documento") DNI: 
+        input.forma-input(type="text" name="dni" value=`${medico.dni}` required)
+
+        label.forma-label(for="fecha_nacimiento") Fecha de Nacimiento: 
+        input.forma-input(type="date" name="fecha_nacimiento" value=`${medico.fecha_nacimiento}`)
+
+        label.forma-label(for="domicilio") Domicilio: 
+        input.forma-input(type="text" name="domicilio" value=`${medico.domicilio}` required)
+
+        label.forma-label(for="sexo") Sexo:
+        select.forma-select(name="sexo" required)
+            option(value="") Seleccione el sexo
+            option(value="M" selected=medico.sexo === "M") Masculino
+            option(value="F" selected=medico.sexo === "F") Femenino
+
+
+        label.forma-label(for="domicilio") E-mail: 
+        input.forma-input(type="email" name="email" value=`${medico.email}` required)
+
+        label.forma-label(for="especialidades") Especialidades: 
+        select.forma-select(name="especialidades" required)
+            each especialidad1 in medico.especialidades
+                option(value="" ) Seleccione la especialidad
+                each especialidad2 in especialidades
+                    option(value=especialidad2.id_especialidad selected=especialidad1.descripcion === especialidad2.descripcion)= especialidad2.descripcion
+        
+        label.forma-label(for="apellido") Matrícula: 
+            each especialidad1 in medico.especialidades
+                input.forma-input(type="text" name="matricula" value=especialidad1.medicos_especialidades.matricula required)
+            
+            label(for="id_medico_especialidad" hidden)
+                each especialidad1 in medico.especialidades
+                    input(type="text" name="id_medico_especialidad" value=especialidad1.medicos_especialidades.id_medico_especialidad hidden)
+
+        .div-botones
+            button.forma-button(type="submit") Editar Médico
+            button.forma-button(type="reset") Limpiar campos

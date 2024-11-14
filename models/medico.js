@@ -1,5 +1,7 @@
 const sequelize = require('../config/database');
 const { DataTypes } = require('sequelize');
+/* const especialidad = require('./especialidad');
+const medicos_especialidades = require('./medicos_especialidades') */
 
 const Medico = sequelize.define('medicos', {
     id_medico: {
@@ -21,7 +23,7 @@ const Medico = sequelize.define('medicos', {
     },
     fecha_nacimiento: {
         type: DataTypes.DATE,
-        allowNull: true
+        allowNull: false
     },
     domicilio: {
         type: DataTypes.STRING,
@@ -33,7 +35,8 @@ const Medico = sequelize.define('medicos', {
     },
     activo: {
         type: DataTypes.BOOLEAN,
-        allowNull: false
+        allowNull: false,
+        defaultValue: true
     },
     email: {
         type: DataTypes.STRING,
@@ -46,4 +49,11 @@ const Medico = sequelize.define('medicos', {
   }
 );
 
+/* Medico.belongsToMany(especialidad, { 
+    through: medicos_especialidades, // Nombre de la tabla intermedia
+    foreignKey: 'id_medico', // Clave foránea en medicos_especialidades que conecta con Medico
+    otherKey: 'id_especialidad', // Clave foránea en medicos_especialidades que conecta con Especialidad
+    as: 'especialidades' // Alias para acceder a las especialidades de un médico
+  });
+ */
 module.exports = Medico;

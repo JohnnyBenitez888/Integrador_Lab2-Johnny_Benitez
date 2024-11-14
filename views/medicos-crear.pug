@@ -1,40 +1,39 @@
 extends ./layout.pug
 block content
-    form#form(action="/profesional/crear" method="POST")
-        .form-group
-            label(for="nombre") Nombre
-            input.nombre(type="text" name="nombre" required)
+    form.forma-form(action="/allmedicos/crear" method="POST")
+        label.forma-label(for="nombre") Nombre: 
+        input.forma-input(type="text" name="nombre" required)
 
-        .form-group
-            label(for="apellido") Apellido
-            input.apellido(type="text" name="apellido" required)
+        label.forma-label(for="apellido") Apellido: 
+        input.forma-input(type="text" name="apellido" required)
 
-        .form-group
-            label(for="documento") DNI
-            input.documento(type="text" name="dni" required)
+        label.forma-label(for="documento") DNI: 
+        input.forma-input(type="text" name="dni" required)
 
-        .form-group
-            label(for="fechaNacimiento") Fecha de Nacimiento
-            input.fechaNacimiento(type="date" name="fechaNacimiento" required)
+        label.forma-label(for="fecha_nacimiento") Fecha de Nacimiento: 
+        input.forma-input(type="date" name="fecha_nacimiento")
 
-        .form-group
-            label(for="domicilio") Domicilio
-            input.domicilio(type="text" name="domicilio" required)
+        label.forma-label(for="domicilio") Domicilio: 
+        input.forma-input(type="text" name="domicilio" required)
 
-        .form-group
-            label(for="sexo") Sexo
-            select.sexo(name="sexo" required)
-                option(value="" disabled selected) Seleccione el sexo
-                option(value="M") Masculino
-                option(value="F") Femenino
+        label.forma-label(for="sexo") Sexo: 
+        select.forma-select(name="sexo" required)
+            option(value="" disabled selected) Seleccione el sexo
+            option(value="M") Masculino
+            option(value="F") Femenino
 
-        .form-group
-            label(for="especialidades") Especialidades
-        .especialidades-disponibles
-            select(name="especialidades" required)
-                option(value="" disabled selected) Seleccione la especialidad
-                each especialidad in especialidades
-                    option(value=especialidad.id_especialidad)= especialidad.descripcion
+        label.forma-label(for="domicilio") E-mail: 
+        input.forma-input(type="email" name="email" required)
+
+        label(for="especialidades") Especialidades: 
+        select.forma-select(name="especialidades" required)
+            option(value="" disabled selected) Seleccione la especialidad
+            each especialidad in especialidades
+                option(value=especialidad.id_especialidad)= especialidad.descripcion
+        
+        label.forma-label(for="apellido") Matrícula: 
+        input.forma-input(type="text" name="matricula" required)
+
         .div-botones
-            button.crear(type="submit") Crear Profesional
-            button.resetear(type="reset") Limpiar campos
+            button.forma-button(type="submit") Crear Profesional
+            button.forma-button(type="reset") Limpiar campos

@@ -1,0 +1,25 @@
+extends ./layout.pug
+block content
+    form.forma-form(action="/allespecialidades/crear" method="POST")
+        label.forma-label(for="descripcion") Nombre de la Especialidad: 
+        input.forma-input(type="text" name="descripcion" required)
+            
+        .div-botones
+            button.forma-button(type="submit") Crear Especialidad
+            button.forma-button(type="reset") Limpiar campos
+    
+    .lista 
+        H2 Especialidades
+        table
+            thead
+                tr
+                    th N°
+                    th Nombre
+                    th Acciones
+            tbody
+                each especialidad in especialidades
+                    tr
+                        th #{especialidad.id_especialidad}
+                        td #{especialidad.descripcion}
+                        td
+                            a.eliminar(href=`/allespecialidades/eliminar/${especialidad.id_especialidad}` style="background-color: red") Eliminar

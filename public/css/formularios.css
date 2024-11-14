@@ -1,0 +1,70 @@
+/* Estilo general del formulario */
+.forma-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Etiquetas */
+  .forma-label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  /* Inputs */
+  .forma-input, .forma-select, .forma-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    color: #333;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .forma-input:focus, .forma-select:focus {
+    border-color: #6c63ff;
+    box-shadow: 0px 0px 5px rgba(108, 99, 255, 0.5);
+    outline: none;
+  }
+  
+  /* Select */
+  .forma-select {
+    appearance: none;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  .forma-select::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+  }
+  
+  /* Botón */
+  .forma-button {
+    background-color: #9f3647;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .forma-button:hover {
+    background-color: #5750d4;
+    box-shadow: 0px 4px 8px rgba(108, 99, 255, 0.3);
+  }
+  

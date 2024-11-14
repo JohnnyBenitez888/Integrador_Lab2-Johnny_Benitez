@@ -1,7 +1,7 @@
 extends ./layout.pug
 block content
     h1.titi Médicos
-    a.btn-primario(href="/medicos/crear") Crear Médico
+    a.btn-primario(href="/allmedicos/crear") Crear Médico
     if nombre
         .alert.alert-success
             h4 El médico #{nombre} fue creado correctamente
@@ -9,7 +9,6 @@ block content
     table
         thead
             tr
-                th ID
                 th Nombre
                 th Apellido
                 th DNI
@@ -17,12 +16,13 @@ block content
                 th Domicilio
                 th Sexo
                 th Email
+                th Especialidad
+                th Matricula
                 th Estado
                 th Acciones
         tbody
             each medico in medicos
                 tr
-                    td #{medico.id_medico}
                     td #{medico.nombre}
                     td #{medico.apellido}
                     td #{medico.dni}
@@ -30,7 +30,18 @@ block content
                     td #{medico.domicilio}
                     td #{medico.sexo}
                     td #{medico.email}
+                    td 
+                        ul
+                            each especialidad in medico.especialidades
+                                li
+                                    |#{especialidad.descripcion}
+                    td 
+                        each especialidad in medico.especialidades
+                            |#{especialidad.medicos_especialidades.matricula} 
                     td= medico.activo ? "Activo" : "Inactivo"
                     td
-                        a.actualizar(href=`/medicos/buscar/${medico.id_medico}`) Actualizar
-                        a.eliminar(href=`/medicos/eliminar/${medico.id_medico}`) Eliminar
+                        a.actualizar(href=`/allmedicos/buscar/${medico.id_medico}`) Actualizar
+                        if(medico.activo)
+                            a.eliminar(href=`/allmedicos/desactivar/${medico.id_medico}` style="background-color: red") Desactivar
+                        else
+                            a.eliminar(href=`/allmedicos/activar/${medico.id_medico}` style="background-color: green") Activar

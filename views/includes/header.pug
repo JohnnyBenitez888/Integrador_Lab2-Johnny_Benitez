@@ -1,5 +1,8 @@
 h1= tituloMenu
 .info-usuario
     a(href="/")
-        p Bienvenido, Johnny
+        if(titulo === "Administrador")
+            p Administrador Johnny
+        else 
+            p Secretaria Lucia
         img(src="/assets/user-logo.webp" alt="Logo de usuario")

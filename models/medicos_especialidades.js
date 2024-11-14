@@ -3,7 +3,7 @@ const sequelize = require("../config/database");
 const medico = require("./medico"); // Importar el modelo de medico
 const especialidad = require("./especialidad"); // Importar el modelo de especialidad
 
-const Medico_especialidad = sequelize.define(
+const Medicos_especialidades = sequelize.define(
   "medicos_especialidades",
   {
     id_medico_especialidad: {
@@ -38,14 +38,4 @@ const Medico_especialidad = sequelize.define(
   }
 );
 
-
-Medico_especialidad.belongsToMany(medico, {
-  foreignKey: "id_medico",
-  as: "medico",
-});
-Medico_especialidad.belongsToMany(especialidad, {
-  foreignKey: "id_especialidad",
-  as: "especialidad",
-});
-
-module.exports = Medico_especialidad;
+module.exports = Medicos_especialidades;

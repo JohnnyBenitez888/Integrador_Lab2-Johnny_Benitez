@@ -3,37 +3,37 @@ block content
     div.container.mt-4
         h3 "Formulario de ingreso de paciente"
         p A continuación, ingrese los datos solicitados.
-        form
+        form.forma-form
             div.mb-4
                 h5 Datos del paciente
                 div.mb-3
-                    label.form-label Nombre
-                    input.form-control(type='text' placeholder='Nombre completo' required onchange='{setNombre}' value='')
+                    label.forma-label Nombre
+                    input.forma-input(type='text' placeholder='Nombre completo' required onchange='{setNombre}' value='')
                 div.mb-3
-                    label.form-label Número de Documento
-                    input.form-control(type='number' placeholder='Solo números' required onchange='{setDocumentoIdentidad}' value='')
+                    label.forma-label Número de Documento
+                    input.forma-input(type='number' placeholder='Solo números' required onchange='{setDocumentoIdentidad}' value='')
                 div.mb-3
-                    label.form-label Edad
-                    input.form-control(type='number' min='0' maxlength='999' placeholder='Edad del paciente' required onchange='{setEdad}' value='{pacienteData.edad}')
+                    label.forma-label Edad
+                    input.forma-input(type='number' min='0' maxlength='999' placeholder='Edad del paciente' required onchange='{setEdad}' value='{pacienteData.edad}')
             hr
             div.mb-4
                 h5 Datos de contacto
                 div.mb-3
-                    label.form-label Email
-                    input.form-control#emailInput(type='email' placeholder='Dirección de email' required onchange='{setEmail}' value='')
+                    label.forma-label Email
+                    input.forma-input(type='email' placeholder='Dirección de email' required onchange='{setEmail}' value='')
                     if true
                         div.alert.alert-danger #{emailAlert}
                 div.mb-3
-                    label.form-label Teléfono
-                    input.form-control(type='number' placeholder='Solo números' required onchange='{setTelefono}' value='{pacienteData.telefono}')
+                    label.forma-label Teléfono
+                    input.forma-input(type='number' placeholder='Solo números' required onchange='{setTelefono}' value='{pacienteData.telefono}')
             hr
             div.mb-4
                 h5 Cobertura
                 div.mb-3
-                    label.form-label Obra social
-                    input.form-control(type='text' placeholder='Opcional' onchange='{setObraSocial}' value='')
+                    label.forma-label Obra social
+                    input.forma-input(type='text' placeholder='Opcional' onchange='{setObraSocial}' value='')
                 div.mb-3
-                    label.form-label Plan
-                    input.form-control(type='text' placeholder='Opcional' onchange='{setPlan}' value='')
+                    label.forma-label Plan
+                    input.forma-input(type='text' placeholder='Opcional' onchange='{setPlan}' value='')
             div.text-center.mt-4
-                button.btn.btn-primary(type='submit') Guardar
+                button.forma-button(type='submit') Guardar
