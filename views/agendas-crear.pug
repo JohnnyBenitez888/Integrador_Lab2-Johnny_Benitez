@@ -1,0 +1,85 @@
+extends ./layout.pug
+block content
+    form.forma-form(action="/allagendas/crear" method="POST")
+        label.forma-label(for="id_medico") Médico:
+        select.forma-select(id="nombreMedico" name="id_medico" required)
+            option(value="" disabled selected) Seleccione el Médico
+            each medico in medicos
+                option(value=medico.id_medico)= medico.nombre + " " + medico.apellido
+
+        label.forma-label(for="id_especialidad") Especialidades: 
+        select.forma-select(id="especialidades" name="id_especialidad" required)
+            option(value="" disabled selected) Seleccione la especialidad 
+
+        label.forma-label(for="id_medico_especialidad" hidden)
+        select.forma-select(id="id_medico_especialidad" name="id_medico_especialidad" hidden)
+             
+
+        label.forma-label(for="id_clasificacion") Clasificación: 
+        select.forma-select(name="id_clasificacion" required)
+            option(value="" disabled selected) Seleccione la clasificación
+            each clasificacion in clasificaciones
+                option(value=clasificacion.id_clasificacion)= clasificacion.nombre
+
+        <label for="diasT">Días</label>
+        <select id="dias" name="diasT[]" multiple class="forma-select">
+          <option value="Lunes">Lunes</option>
+          <option value="Martes">Martes</option>
+          <option value="Miércoles">Miércoles</option>
+          <option value="Jueves">Jueves</option>
+          <option value="Viernes">Viernes</option>
+          <option value="Sábado">Sábado</option>
+          <option value="Domingo">Domingo</option>
+        </select>
+
+        label.forma-label(for="hora_inicio") Hora de Inicio: 
+        input.forma-input(type="time" name="hora_inicio" required)
+
+        label.forma-label(for="hora_fin") Hora de Fin: 
+        input.forma-input(type="time" name="hora_fin" required)
+
+        label.forma-label(for="duracion_turno") Duración de Consulta: 
+        input.forma-input(type="text" name="duracion_turno" required)
+
+        label.forma-label(for="nombre_sucursal") Sucursales: 
+        select.forma-select(name="nombre_sucursal" required)
+            option(value="" disabled selected) Seleccione la sucursal
+            each sucursal in sucursales
+                option(value=sucursal.nombre_sucursal)= sucursal.nombre_sucursal
+
+        .div-botones
+            button.forma-button(type="submit") Crear Agendas
+            button.forma-button(type="reset") Limpiar campos
+        script.
+          document.getElementById("nombreMedico").addEventListener("change", async function() {
+              const medicoId = this.value;
+              const especialidadesSelect = document.getElementById("especialidades");
+              const especialidadesSelect2 = document.getElementById("id_medico_especialidad");
+
+              // Limpiar el select de especialidades
+              especialidadesSelect.innerHTML = '<option value="" disabled selected>Seleccione la especialidad</option>';
+              especialidadesSelect2.innerHTML = '<option value="" disabled selected>Seleccione la especialidad</option>';
+
+              if (medicoId) {
+                  try {
+                      // Hacer la petición a la API para obtener las especialidades del médico seleccionado
+                      const response = await fetch(`/allmedicos/${medicoId}/especialidades`);
+                      const especialidades = await response.json();
+
+                      // Llenar el select de especialidades con las opciones obtenidas
+                      especialidades.forEach(especialidad => {
+                          const option = document.createElement("option");
+                          const option2 = document.createElement("option");
+                          option.value = especialidad.id_especialidad;
+                          option.textContent = especialidad.descripcion;
+                          option2.value = especialidad.medicos_especialidades.id_medico_especialidad;
+                          option2.textContent = especialidad.medicos_especialidades.id_medico_especialidad;
+                          option2.selected = true;
+                          especialidadesSelect.appendChild(option);
+                          especialidadesSelect2.appendChild(option2);
+                      });
+                  } catch (error) {
+                      console.error("Error al cargar especialidades:", error);
+                  }
+              }
+          });

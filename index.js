@@ -35,31 +35,40 @@ app.get("/register-login", (req, res) => {
 app.get("/calendario", (req, res) => {
   const calendario = cargarMesActual(); // Generar el calendario del mes actual
   //console.log(calendario);
-  res.render("calendario", { calendario });
+  res.render("calendario", {titulo: "Administrador", calendario , tituloMenu: "Calendario"});
 });
 
 app.get("/calendario/mes-anterior", (req, res) => {
   const calendario = cargarMesAnterior(); // Generar el calendario del mes anterior
-  res.render("calendario", { calendario });
+  res.render("calendario", {titulo: "Administrador", calendario , tituloMenu: "Calendario"});
 });
 
 app.get("/calendario/mes-siguiente", (req, res) => {
   const calendario = cargarMesSiguiente(); // Generar el calendario del mes siguiente
-  res.render("calendario", { calendario });
+  res.render("calendario", {titulo: "Administrador", calendario , tituloMenu: "Calendario"});
 });
 
 /* Rutas del Administrador--------------------------------------------------------------------------------- */
 app.get("/admin", (req, res) => {
-  res.render("home", { titulo: "Administrador" });
+  res.render("home", { titulo: "Administrador", tituloMenu: "Bienvenido a la Clínica ULP" });
 });
 /* Rutas del Secretaria--------------------------------------------------------------------------------- */
 app.get("/secretaria", (req, res) => {
-  res.render("home", { titulo: "Secretaria" });
+  res.render("home", { titulo: "Secretaria", tituloMenu: "Bienvenido a la Clínica ULP" });
 });
-/* Rutas del Nuevo Turno--------------------------------------------------------------------------------- */
-app.get("/nuevo-turno", (req, res) => {
+/* Rutas de la Agenda--------------------------------------------------------------------------------- */
+const agendaRoute = require("./routes/agendaRoute.js");
+/* app.get("/nuevo-turno", (req, res) => {
   res.render("nuevo-turno");
-});
+}); */
+app.use("/allagendas", agendaRoute);
+
+/* Rutas del Nuevo Turno--------------------------------------------------------------------------------- */
+const turnoRoute = require("./routes/turnoRoute.js");
+/* app.get("/nuevo-turno", (req, res) => {
+  res.render("nuevo-turno");
+}); */
+app.use("/allturnos", turnoRoute);
 
 /* Rutas del medico----------------------------------------------------------------------------------------*/
 const medicoRoute = require("./routes/medicoRoute.js");
@@ -84,7 +93,7 @@ app.use("/allpaciente", pacienteRoute);
 
 app.get("/ingresarPaciente", (req, res) => {
   /* AgendarPaciente */
-  res.render("ingresarPaciente");
+  res.render("ingresarPaciente", { titulo: "Secretaria", tituloMenu: "Ingresar Paciente" });
 });
 
 /* Sincronizar la base de datos --------------------------------------------------------------------------*/

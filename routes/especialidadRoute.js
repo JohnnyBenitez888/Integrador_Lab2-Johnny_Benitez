@@ -6,7 +6,7 @@ const {listarEspecialidades} = require('../controllers/especialidadController');
 router.get('/', async (req, res) => {
     const especialidades = await listarEspecialidades();
     //console.log(especialidades);
-    res.render('especialidades.pug', { titulo: 'Administrador', tituloMenu: "Crear Médico", especialidades });
+    res.render('especialidades.pug', { titulo: 'Administrador', tituloMenu: "Especialidades", especialidades });
 });
 
 router.post('/crear', especialidadController.crearEspecialidad);

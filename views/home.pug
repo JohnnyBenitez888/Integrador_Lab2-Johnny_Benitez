@@ -1,3 +1,25 @@
 extends ./layout.pug
 block content
-    h1.titi Home
+    .container
+        if(titulo == "Administrador")
+            .caja
+                h2 Listar Agendas
+                a(href="/allagendas")
+                    img(src="/assets/listar_agendas.jpeg" alt="Listar Agendas Logo" class="icono-boton")
+            .caja
+                h2 Crear Agendas
+                a(href="/allagendas/crear")
+                    img(src="/assets/agendas.jpeg" alt="Secretaria Logo" class="icono-boton")
+        else if(titulo == "Secretaria")
+            .caja
+                h2 Listar Agendas
+                a(href="/allagendas")
+                    img(src="/assets/listar_agendas.jpeg" alt="Listar Agendas Logo" class="icono-boton")
+            .caja
+                h2 Agendar Turno
+                a(href="#")
+                    img(src="/assets/agendar_turnos.jpeg" alt="Agendar Turno Logo" class="icono-boton")
+            .caja
+                h2 Listar Turnos
+                a(href="/allturnos")
+                    img(src="/assets/listar_turnos.jpeg" alt="Listar Turnos Logo" class="icono-boton")

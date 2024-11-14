@@ -1,0 +1,45 @@
+extends ./layout.pug
+block content
+    if(titulo == "Administrador")
+        a.btn-primario(href="/allagendas/crear") Crear Agenda
+    table   
+        thead 
+            tr 
+                th Id
+                th Médico
+                th Especialidad
+                th Clasificación
+                th Días
+                th Hora de Inicio
+                th Hora de Fin
+                th Duracion
+                th Sucursal
+                th Acciones                
+        tbody 
+            each agenda in agendas                
+                tr
+                    td= agenda.id_agenda
+                    td 
+                        each medico in medicos
+                            if(medico.id_medico == agenda.medicoEspecialidad.id_medico)
+                                | #{medico.nombre} #{medico.apellido}
+                    td
+                        each especialidad in especialidades
+                                if(especialidad.id_especialidad == agenda.medicoEspecialidad.id_especialidad)
+                                    | #{especialidad.descripcion}
+                    td
+                        each clasificacion in clasificaciones
+                            if(clasificacion.id_clasificacion == agenda.clasificacion.id_clasificacion)
+                                | #{clasificacion.nombre}
+                    td= agenda.dias
+                    td= `${agenda.hora_inicio} hs`
+                    td= `${agenda.hora_fin} hs`
+                    td= `${agenda.duracion_turno} minutos`
+                    td 
+                        each sucursal in sucursales
+                            if(sucursal.nombre_sucursal == agenda.nombre_sucursal)
+                                | #{sucursal.nombre_sucursal}
+                    td
+                        //a(href=`/turnos/${agenda.id_agenda}` class="btn btn-success") Ver Turnos 
+                        a.actualizar(href=`/agendas/edit/${agenda.id_agendas}` class="btn btn-info") Actualizar
+                        a.eliminar(href=`/agendas/edit/${agenda.id_agendas}` class="btn btn-danger") Eliminar

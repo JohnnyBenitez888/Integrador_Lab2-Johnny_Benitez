@@ -29,17 +29,8 @@ const Agenda = sequelize.define(
       },
     },
     dias: {
-      type: DataTypes.SET,
-      allowNull: true,
-      values: [
-        "Lunes",
-        "Martes",
-        "Miércoles",
-        "Jueves",
-        "Viernes",
-        "Sábado",
-        "Domingo",
-      ],
+      type: DataTypes.JSON,
+      allowNull: false
     },
     hora_inicio: {
       type: DataTypes.TIME,
@@ -69,8 +60,8 @@ const Agenda = sequelize.define(
 );
 
 // Establecer la relación con los otros modelos
-Agenda.belongsTo(medicos_especialidades, { foreignKey: 'id_medico_especialidad' });
-Agenda.belongsTo(clasificacion, { foreignKey: 'id_clasificacion' });
-Agenda.belongsTo(sucursal, { foreignKey: 'nombre_sucursal', targetKey: 'nombre_sucursal' }); // Relación con el nombre de la sucursal
+Agenda.belongsTo(medicos_especialidades, { foreignKey: 'id_medico_especialidad' , as: 'medicoEspecialidad'});
+Agenda.belongsTo(clasificacion, { foreignKey: 'id_clasificacion', as: 'clasificacion' });
+Agenda.belongsTo(sucursal, { foreignKey: 'nombre_sucursal', targetKey: 'nombre_sucursal' , as: 'sucursal'}); // Relación con el nombre de la sucursal
 
 module.exports = Agenda;

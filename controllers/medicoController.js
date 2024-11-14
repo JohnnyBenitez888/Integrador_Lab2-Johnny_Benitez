@@ -3,6 +3,8 @@ const especialidad = require('./especialidad');
 const medicos_especialidades = require("../models/medicos_especialidades"); */
 const { Medico, Especialidad, MedicosEspecialidades } = require("../models");
 const {listarEspecialidades} = require('../controllers/especialidadController');
+const clasificacion = require("../models/clasificacion");
+const sucursal = require("../models/sucursal");
 
 exports.listarMedicos = async (req, res) => {
   try {
@@ -15,7 +17,23 @@ exports.listarMedicos = async (req, res) => {
       }
     });
     //console.log(medicos[5].especialidades.dataValues);
-    res.render("medicos.pug", { titulo: 'Administrador', medicos: medicos });
+    res.render("medicos.pug", { titulo: 'Administrador', tituloMenu: "Médicos", medicos: medicos });
+  } catch (error) {
+    console.error("Error al obtener los médicos gg:", error);
+  }
+};
+exports.listarMedicosAgendas = async (req, res) => {
+  try {
+    const medicos = await Medico.findAll({
+      include: {
+        model: Especialidad,
+        as: 'especialidades',
+        through: { model: MedicosEspecialidades, attributes: ['matricula'] },
+        attributes: ['descripcion'] 
+      }
+    });
+    //console.log(medicos[5].especialidades.dataValues);
+    return medicos;
   } catch (error) {
     console.error("Error al obtener los médicos gg:", error);
   }
@@ -124,3 +142,71 @@ exports.activarMedico = async (req, res) => {
   }
 };
 
+//--------------Clasificaciones---------------------------------
+exports.listarClasificaciones = async () => {
+  try {
+    const clasificaciones = await clasificacion.findAll();
+    return clasificaciones;
+  } catch (error) {
+    console.error("Error al obtener las clasificaciones:", error);
+  }
+};
+
+//--------------Sucursales---------------------------------
+exports.listarSucursales = async () => {
+  try {
+    const sucursales = await sucursal.findAll();
+    return sucursales;
+  } catch (error) {
+    console.error("Error al obtener las sucursales:", error);
+  }
+};
+
+//----------------Especialidades por medicos---------------------
+// En tu archivo controlador
+exports.obtenerEspecialidadesPorMedico = async (req, res) => {
+  try {
+      const idMedico = req.params.id; // Obtener el id del médico de los parámetros de la ruta
+      const medico = await Medico.findByPk(idMedico, {
+        include: {
+          model: Especialidad,
+          as: 'especialidades',
+          through: { model: MedicosEspecialidades, attributes: ['id_medico_especialidad', 'matricula'] },
+          attributes: ['id_especialidad','descripcion']
+        }
+      });
+
+      const especialidades = medico ? medico.especialidades : [];
+      console.log(especialidades)
+      res.json(especialidades);
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Error al obtener especialidades" });
+  }
+};
+
+exports.buscarMedico_Especialidad = async (id_medico) => {
+  try {
+    
+    const medico = await Medico.findByPk(id_medico, {
+      include: {
+        model: Especialidad,
+        as: 'especialidades',
+        through: { model: MedicosEspecialidades, attributes: ['id_medico_especialidad', 'matricula'] },
+        attributes: ['id_especialidad','descripcion']
+      }
+    });
+
+
+    let id_medico_especialidad = 0;
+
+    medico.forEach(especialidad => {
+      id_medico_especialidad = especialidad.medicos_especialidades.id_medico_especialidad;
+  });
+    //console.log(medico.especialidades);
+    return id_medico_especialidad;
+  } catch (error) {
+    console.error('Error al obtener el id_medico_especialidad :', error);
+    res.status(500).send('Error al obtener el id_medico_especialidad .');
+  }
+};

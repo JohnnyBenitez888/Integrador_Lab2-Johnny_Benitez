@@ -25,7 +25,7 @@ block content
         label.forma-label(for="domicilio") E-mail: 
         input.forma-input(type="email" name="email" required)
 
-        label(for="especialidades") Especialidades: 
+        label.forma-label(for="especialidades") Especialidades: 
         select.forma-select(name="especialidades" required)
             option(value="" disabled selected) Seleccione la especialidad
             each especialidad in especialidades
@@ -35,5 +35,5 @@ block content
         input.forma-input(type="text" name="matricula" required)
 
         .div-botones
-            button.forma-button(type="submit") Crear Profesional
+            button.forma-button(type="submit") Crear Médico
             button.forma-button(type="reset") Limpiar campos

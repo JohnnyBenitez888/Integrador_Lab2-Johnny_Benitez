@@ -13,3 +13,37 @@
 .btn-primario:hover {
   background-color: darkcyan;
 }
+
+/* Estilo para el contenedor */
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap; /* Permite que las cajas se acomoden si no hay suficiente espacio */
+}
+
+/* Estilo para las cajas */
+.caja {
+  flex: 1 1 200px; /* Permite que cada caja tenga al menos 200px de ancho y se ajuste automáticamente */
+  max-width: 300px; /* Limita el ancho máximo de cada caja */
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 2px solid #9f3647;
+  border-radius: 10px;
+  box-shadow: 0px 3px 2px 2px #9f3647;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover */
+.caja:hover {
+  transform: scale(1.05);
+}
+
+/* Estilo para las imágenes dentro de las cajas */
+.caja img.icono-boton {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}

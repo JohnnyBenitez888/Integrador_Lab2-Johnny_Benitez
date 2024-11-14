@@ -15,5 +15,6 @@ router.get('/buscar/:id', medicoController.buscarMedico);
 router.post('/editar', medicoController.editarMedico);
 router.get('/desactivar/:id', medicoController.desactivarMedico);
 router.get('/activar/:id', medicoController.activarMedico);
+router.get('/:id/especialidades', medicoController.obtenerEspecialidadesPorMedico);
 
 module.exports = router;
