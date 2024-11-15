@@ -12,8 +12,12 @@ block content
                     img(src="/assets/agendas.jpeg" alt="Secretaria Logo" class="icono-boton")
         else if(titulo == "Secretaria")
             .caja
+                h2 Listar Pasientes
+                a(href="/allpaciente")
+                    img(src="/assets/listar_pasiente.jpeg" alt="Listar Agendas Logo" class="icono-boton")
+            .caja
                 h2 Listar Agendas
-                a(href="/allagendas")
+                a(href="/allagendas/secretaria")
                     img(src="/assets/listar_agendas.jpeg" alt="Listar Agendas Logo" class="icono-boton")
             .caja
                 h2 Agendar Turno

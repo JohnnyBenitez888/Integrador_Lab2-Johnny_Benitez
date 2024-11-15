@@ -53,4 +53,37 @@ exports.crearAgendas = async (req, res) => {
     }
   };
 
+  //--------------------------Secretaria--------------------------
+  exports.listarAgendasSecretaria = async (req, res) => {
+    try {
+        const agendas = await agenda.findAll({
+            include: [
+                {
+                    model: medicos_especialidades,
+                    as: 'medicoEspecialidad', // Alias opcional
+                },
+                {
+                    model: clasificacion,
+                    as: 'clasificacion', // Alias opcional
+                },
+                {
+                    model: sucursal,
+                    as: 'sucursal', // Alias opcional
+                },
+            ],
+        });
+
+        const medicos = await listarMedicosAgendas();
+        const clasificaciones = await listarClasificaciones();
+        const sucursales = await listarSucursales();
+        const especialidades = await listarEspecialidades();
+
+        res.render("allagendasSecretaria.pug", { titulo: 'Secretaria', tituloMenu: "Agendas", agendas: agendas, medicos: medicos, especialidades: especialidades, clasificaciones: clasificaciones, sucursales: sucursales });
+        //res.json(agendas);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Error al obtener las agendas" });
+    }
+};
+
 

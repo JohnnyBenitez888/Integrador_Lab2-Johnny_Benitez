@@ -5,6 +5,7 @@ const {listarMedicosAgendas, listarClasificaciones, listarSucursales} = require(
 const {listarEspecialidades} = require('../controllers/especialidadController');
 
 router.get('/', agendaController.listarAgendas);
+router.get('/secretaria', agendaController.listarAgendasSecretaria);
 router.get('/crear', async (req, res) => {
     const medicos = await listarMedicosAgendas();
     const especialidades = await listarEspecialidades();
